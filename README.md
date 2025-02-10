@@ -8,26 +8,40 @@
     <a href="https://eesc.usp.br/">
     <img src="https://img.shields.io/badge/Linked%20to-EESC--USP-black?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge"/>
+    <a href="https://github.com/zenith/Platform-Lib
+/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/zenith/Platform-Lib
+?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/issues">
-    <img src="https://img.shields.io/github/issues/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge"/>
+    <a href="https://github.com/zenith/Platform-Lib
+/issues">
+    <img src="https://img.shields.io/github/issues/zenith/Platform-Lib
+?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/commits/main">
-    <img src="https://img.shields.io/github/commit-activity/m/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge">
+    <a href="https://github.com/zenith/Platform-Lib
+/commits/main">
+    <img src="https://img.shields.io/github/commit-activity/m/zenith/Platform-Lib
+?style=for-the-badge">
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge"/>
+    <a href="https://github.com/zenith/Platform-Lib
+/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/zenith/Platform-Lib
+?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/commits/main">
-    <img src="https://img.shields.io/github/last-commit/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge"/>
+    <a href="https://github.com/zenith/Platform-Lib
+/commits/main">
+    <img src="https://img.shields.io/github/last-commit/zenith/Platform-Lib
+?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/issues">
-    <img src="https://img.shields.io/github/issues-raw/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge" />
+    <a href="https://github.com/zenith/Platform-Lib
+/issues">
+    <img src="https://img.shields.io/github/issues-raw/zenith/Platform-Lib
+?style=for-the-badge" />
     </a>
-    <a href="https://github.com/${{ env.REPOSITORY_FULL_NAME }}/pulls">
-    <img src = "https://img.shields.io/github/issues-pr-raw/${{ env.REPOSITORY_FULL_NAME }}?style=for-the-badge">
+    <a href="https://github.com/zenith/Platform-Lib
+/pulls">
+    <img src = "https://img.shields.io/github/issues-pr-raw/zenith/Platform-Lib
+?style=for-the-badge">
     </a>
 </p>
 
@@ -61,12 +75,13 @@ includes to other arduino (or esp-idf) libraries. Check issue #43.
 ## Specification
 
 <p align="center">
-    <a href="###Common">Common</a> •
-    <a href="###GPIO">GPIO</a> •
-    <a href="###I2C">I2C</a> •
-    <a href="####SPI">SPI</a> •
-    <a href="###UART">UART</a> •
-    <a href="###ADC">ADC</a> •
+    <a href="#common">Common</a> •
+    <a href="#gpio">GPIO</a> •
+    <a href="#i2c">I2C</a> •
+    <a href="#spi">SPI</a> •
+    <a href="#uart">UART</a> •
+    <a href="#adc">ADC</a> •
+    <a href="#pwm">PWM</a> •
 </p>
 
 ### Common
@@ -304,6 +319,8 @@ float adc_raw_to_voltage(adc_t adc, const uint16_t value);
 ```
 
 ADC conversion to volts.
+
+### PWM
 
 <p align="center">
     <a href="http://zenith.eesc.usp.br">
