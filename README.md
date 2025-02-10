@@ -8,40 +8,26 @@
     <a href="https://eesc.usp.br/">
     <img src="https://img.shields.io/badge/Linked%20to-EESC--USP-black?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zenith/Platform-Lib
-?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Platform-Lib/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/zenitheesc/Platform-Lib?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/issues">
-    <img src="https://img.shields.io/github/issues/zenith/Platform-Lib
-?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Platform-Lib/issues">
+    <img src="https://img.shields.io/github/issues/zenitheesc/Platform-Lib?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/commits/main">
-    <img src="https://img.shields.io/github/commit-activity/m/zenith/Platform-Lib
-?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/Platform-Lib/commits/main">
+    <img src="https://img.shields.io/github/commit-activity/m/zenitheesc/Platform-Lib?style=for-the-badge">
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zenith/Platform-Lib
-?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Platform-Lib/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/zenitheesc/Platform-Lib?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/commits/main">
-    <img src="https://img.shields.io/github/last-commit/zenith/Platform-Lib
-?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Platform-Lib/commits/main">
+    <img src="https://img.shields.io/github/last-commit/zenitheesc/Platform-Lib?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/issues">
-    <img src="https://img.shields.io/github/issues-raw/zenith/Platform-Lib
-?style=for-the-badge" />
+    <a href="https://github.com/zenitheesc/Platform-Lib/issues">
+    <img src="https://img.shields.io/github/issues-raw/zenitheesc/Platform-Lib?style=for-the-badge" />
     </a>
-    <a href="https://github.com/zenith/Platform-Lib
-/pulls">
-    <img src = "https://img.shields.io/github/issues-pr-raw/zenith/Platform-Lib
-?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/Platform-Lib/pulls">
+    <img src = "https://img.shields.io/github/issues-pr-raw/zenitheesc/Platform-Lib?style=for-the-badge">
     </a>
 </p>
 
@@ -81,7 +67,7 @@ includes to other arduino (or esp-idf) libraries. Check issue #43.
     <a href="#spi">SPI</a> •
     <a href="#uart">UART</a> •
     <a href="#adc">ADC</a> •
-    <a href="#pwm">PWM</a> •
+    <a href="#pwm">PWM</a> 
 </p>
 
 ### Common
