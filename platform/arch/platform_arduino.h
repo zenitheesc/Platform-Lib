@@ -346,7 +346,7 @@ typedef struct {
 
 EXPORT error_t pwm_start(pwm_t pwm){
   error_t error = 1;
-  if(pwm.handle != NULL){ // Evita segment fault
+  if(pwm.handle != NULL){ // Evita segmentation fault
     error = !ledcAttachChannel(pwm.handle->target, pwm.handle->frequency, 
     pwm.bits, pwm.channel); // Canal pwm foi corretamente anexado ao pino 
   }
@@ -355,7 +355,7 @@ EXPORT error_t pwm_start(pwm_t pwm){
 
 EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
   error_t error = 1;
-  if(pwm.handle != NULL){ // Evita segment fault
+  if(pwm.handle != NULL){ // Evita segmentation fault
     error = !ledcWrite(pwm.handle->target, duty); // Largura de pulsos setada em target
   }
   return error;

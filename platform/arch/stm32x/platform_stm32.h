@@ -259,7 +259,7 @@ typedef struct {
 
 EXPORT error_t pwm_start(pwm_t pwm){
   error_t error = 1;
-  if(pwm.handle != NULL){ // Evita segment fault
+  if(pwm.handle != NULL){ // Evita segmentation fault
     // Inicia PWM no pino, o qual foi configurado com o TIMER
     error = HAL_TIM_PWM_Start(pwm.handle, pwm.channel);
   }
@@ -268,8 +268,7 @@ EXPORT error_t pwm_start(pwm_t pwm){
 
 EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
   error_t error = 1;
-  if(pwm.handle != NULL){ // Evita segment fault
-
+  if(pwm.handle != NULL){ // Evita segmentation fault
     // Ajusta a largura de pulso gerada com PWM
     __HAL_TIM_SET_COMPARE(pwm.handle, pwm.channel, duty);
 
