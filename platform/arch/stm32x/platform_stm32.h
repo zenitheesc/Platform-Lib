@@ -242,29 +242,39 @@ typedef TIM_HandleTypeDef pwm_handle_t;
 typedef uint8_t pwm_channel_t;
 
 typedef struct {
-  pwm_handle_t *handle = NULL;    // conexão entre o pino e o timer usado para o PWM 
-                                  //feita através da configuração de um timer na cubeMX
-                                  //(arquivo .ioc).
-                                  // para o timer 1 -> htim1, para o timer 3 -> htim3 ...
-  pwm_channel_t channel;          // canal pwm usado
-  uint8_t bits;                   // número de bits de precisão do pwm
+  // Conexão entre o pino e o timer usado para o PWM, feita 
+  //através da configuração de um timer na cubeMX (arquivo .ioc).
+  // Handle recebe endereço respectivo ao timer
+  // Para o timer 1: handle=&htim1 | para o timer 3: handle=&htim3 
+  pwm_handle_t *handle = NULL;
+  
+  // Canal do timer utilizado
+  // Para o canal 1: channel=TIM_CHANNEL_1 para o canal3: channel=TIM_CHANNEL_3
+  pwm_channel_t channel;
+
+  // Número de bits de precisão do pwm
+  uint8_t bits;
 } pwm_t;
 
 
 EXPORT error_t pwm_start(pwm_t pwm){
   error_t error = 1;
-  if(pwm.handle != NULL){ // evita segment fault
-    error = HAL_TIM_PWM_Start(*(pwm.handle), pwm.channel);
+  if(pwm.handle != NULL){ // Evita segment fault
+    // Inicia PWM no pino, o qual foi configurado com o TIMER
+    error = HAL_TIM_PWM_Start(pwm.handle, pwm.channel);
   }
   return error;
 }
 
 EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
   error_t error = 1;
-  if(pwm.handle != NULL){ // evita segment fault
-    __HAL_TIM_SET_COMPARE(*(pwm.handle), pwm.channel, duty);
-    error = (duty > *(pwm.handle).Init.Period) ? 1 : 0; // verifica se a largura de pulso não excede a precisão
-                                                        //do timer utilizado
+  if(pwm.handle != NULL){ // Evita segment fault
+
+    // Ajusta a largura de pulso gerada com PWM
+    __HAL_TIM_SET_COMPARE(pwm.handle, pwm.channel, duty);
+
+    // Verifica se a largura de pulso não excede a precisão do timer
+    error = (duty > pwm.handle->Init.Period) ? 1 : 0;
   }
   return error;
 }
