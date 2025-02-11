@@ -335,10 +335,11 @@ typedef struct {
   uint8_t bits;                   // número de bits de precisão do pwm
 } pwm_t;
 
+
 EXPORT error_t pwm_start(pwm_t pwm){
   error_t error = 1;
   if(pwm.handle != NULL){ // evita segment fault
-    error = ledcAttachChannel(pwm.handle->target, pwm.handle->frequency, 
+    error = !ledcAttachChannel(pwm.handle->target, pwm.handle->frequency, 
     pwm.bits, pwm.channel); // canal pwm foi corretamente anexado ao pino 
   }
   return error;
@@ -347,7 +348,7 @@ EXPORT error_t pwm_start(pwm_t pwm){
 EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
   error_t error = 1;
   if(pwm.handle != NULL){ // evita segment fault
-    error = ledcWrite(pwm.handle->target, duty); // largura de ciclos setada em target
+    error = !ledcWrite(pwm.handle->target, duty); // largura de ciclos setada em target
   }
   return error;
 }
