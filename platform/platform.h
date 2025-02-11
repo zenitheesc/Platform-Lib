@@ -11,7 +11,9 @@
  * por isso na struct "result_XX_t" veja o uso comum na struct
  * "result_XX_t"
  */
-typedef uint_fast8_t error_t;
+#ifndef PLATFORMIO
+typedef uint_fast8_t error_t; // platformIO já possui um tipo error_t
+#endif
 
 /**
  * Agrupa em uma struct o ponteiro e tamanho de um buffer já existente
