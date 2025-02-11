@@ -1,7 +1,7 @@
 #define PLATFORM_IO // necessário caso pois utilizamos o ambiente da platformIO
 #include <Arduino.h>
 
-/* Código de teste da funcionalidade de PWM utilizando arduino (framework)
+/* Código de teste da funcionalidade de Pwm utilizando arduino (framework)
 * Autor: Vitor Alexandre
 * Especificações:
 * -Código utilizável tanto na platform io, incluindo os seguintes pacotes em platform.ini
@@ -36,9 +36,8 @@ void setup() {
   // Setagem de atributos do PWM
   Pwm.bits = PWM_BIT;
   Pwm.channel = CHN;
-  Pwm.handle = new pwm_handle_t;
-  Pwm.handle->frequency = FRQ;
-  Pwm.handle->target = PIN_LED;
+  Pwm.handle.frequency = FRQ;
+  Pwm.handle.target = PIN_LED;
 
   // Configuração do pwm
   error = pwm_start(Pwm);
@@ -50,7 +49,7 @@ void setup() {
   }
   
   // Sem erros de configuração
-  Serial.println("=====> Setup without erros");
+  Serial.println("=====> Setup without errors");
 }
 
 void loop() {

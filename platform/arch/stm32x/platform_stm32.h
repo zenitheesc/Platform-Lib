@@ -238,15 +238,15 @@ EXPORT float adc_raw_to_voltage(adc_t adc, uint16_t value) {
  *
  */
 #ifdef HAL_PWM_MODULE_ENABLED
-typedef TIM_HandleTypeDef pwm_handle_t;  
-typedef uint8_t pwm_channel_t;
+typedef TIM_HandleTypeDef* pwm_handle_t;  
+typedef uint32_t pwm_channel_t;
 
 typedef struct {
   // Conexão entre o pino e o timer usado para o PWM, feita 
   //através da configuração de um timer na cubeMX (arquivo .ioc).
   // Handle recebe endereço respectivo ao timer
   // Para o timer 1: handle=&htim1 | para o timer 3: handle=&htim3 
-  pwm_handle_t *handle = NULL;
+  pwm_handle_t handle = NULL;
   
   // Canal do timer utilizado
   // Para o canal 1: channel=TIM_CHANNEL_1 para o canal3: channel=TIM_CHANNEL_3
