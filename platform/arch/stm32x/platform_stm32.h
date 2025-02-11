@@ -2,7 +2,7 @@
  * bsp_stm32.h
  *
  *  Created on: May 7, 2021
- *      Author: leocelente
+ *      Authors: leocelente e Vitor Alexandre
  *
  *  Description:
  *  	O intuito desse arquivo é separar as funções da HAL
@@ -224,6 +224,7 @@ EXPORT float adc_raw_to_voltage(adc_t adc, uint16_t value) {
 
 #endif
 
+
 /***
  * MODULO PWM
  *
@@ -236,5 +237,37 @@ EXPORT float adc_raw_to_voltage(adc_t adc, uint16_t value) {
  *
  *
  */
+#ifdef HAL_PWM_MODULE_ENABLED
+typedef TIM_HandleTypeDef pwm_handle_t;  
+typedef uint8_t pwm_channel_t;
+
+typedef struct {
+  pwm_handle_t *handle = NULL;    // conexão entre o pino e o timer usado para o PWM 
+                                  //feita através da configuração de um timer na cubeMX
+                                  //(arquivo .ioc).
+                                  // para o timer 1 -> htim1, para o timer 3 -> htim3 ...
+  pwm_channel_t channel;          // canal pwm usado
+  uint8_t bits;                   // número de bits de precisão do pwm
+} pwm_t;
+
+
+EXPORT error_t pwm_start(pwm_t pwm){
+  error_t error = 1;
+  if(pwm.handle != NULL){ // evita segment fault
+    error = HAL_TIM_PWM_Start(*(pwm.handle), pwm.channel);
+  }
+  return error;
+}
+
+EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
+  error_t error = 1;
+  if(pwm.handle != NULL){ // evita segment fault
+    __HAL_TIM_SET_COMPARE(*(pwm.handle), pwm.channel, duty);
+    error = (duty > *(pwm.handle).Init.Period) ? 1 : 0; // verifica se a largura de pulso não excede a precisão
+                                                        //do timer utilizado
+  }
+  return error;
+}
+#endif
 
 #endif /* INC_PLATFORM_STM32_H_ */
