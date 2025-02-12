@@ -242,9 +242,9 @@ typedef TIM_HandleTypeDef* pwm_handle_t;
 typedef uint32_t pwm_channel_t;
 
 typedef struct {
-  // Conexão entre o pino e o timer usado para o PWM, feita 
-  //através da configuração de um timer na cubeMX (arquivo .ioc).
-  // Handle recebe endereço respectivo ao timer
+  // Conexão entre o pino e o timer, usado para o PWM, é feita 
+  //através da configurações na própria cubeIDE (arquivo .ioc)
+  // Handle recebe endereço referente ao timer configurado
   // Para o timer 1: handle=&htim1 | para o timer 3: handle=&htim3 
   pwm_handle_t handle = NULL;
   
@@ -260,7 +260,6 @@ typedef struct {
 EXPORT error_t pwm_start(pwm_t pwm){
   error_t error = 1;
   if(pwm.handle != NULL){ // Evita segmentation fault
-    // Inicia PWM no pino, o qual foi configurado com o TIMER
     error = HAL_TIM_PWM_Start(pwm.handle, pwm.channel);
   }
   return error;

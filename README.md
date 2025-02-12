@@ -265,7 +265,7 @@ Transmit bytes via UART
 ```c
 error_t uart_receive(uart_connection_t conn, buffer_view_t buffer);
 ```
-Transmit bytes via UART
+Receive bytes via UART
 
 ### ADC
 
@@ -278,7 +278,7 @@ ADC Channel Type
 - `adc_t`
 ```c
 typedef struct {
-  adc_handle_t handle;
+  adc_handle_t *handle;
   uint8_t bits;
   float voltage_reference;
 } adc_t;
@@ -307,6 +307,45 @@ float adc_raw_to_voltage(adc_t adc, const uint16_t value);
 ADC conversion to volts.
 
 ### PWM
+
+#### Types
+
+ - `pwm_handle_t`
+```c
+typedef <PWM_Handle_Type> pwm_handle_t;
+```
+PWM Handle Type
+
+
+ - `pwm_channel_t`
+```c
+typedef <PWM_Channel_Type_> pwm_channel_t;
+```
+PWM Channel Type
+
+- `pwm_t`
+```c
+typedef struct {
+  pwm_handle_t handle;
+  pwm_channel_t channel;
+  uint8_t bits;
+} pwm_t;
+```
+PWM Type
+
+#### Functions
+
+ -`pwm_start`
+```C
+error_t pwm_start(pwm_t pwm)
+```
+PWM start conection
+
+ -`pwm_write`
+```c
+error_t pwm_write(pwm_t pwm)
+```
+PWM module signal
 
 <p align="center">
     <a href="http://zenith.eesc.usp.br">
