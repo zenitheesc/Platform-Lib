@@ -195,9 +195,9 @@ EXPORT error_t uart_readN(uart_connection_t conn, buffer_view_t buffer) {
  *
  */
 #ifdef HAL_ADC_MODULE_ENABLED
-typedef ADC_HandleTypeDef adc_handle_t;
+typedef ADC_HandleTypeDef* adc_handle_t;
 typedef struct {
-  adc_handle_t *handle;
+  adc_handle_t handle;
   uint8_t bits;
   float voltage_reference;
 } adc_t;
@@ -216,9 +216,9 @@ EXPORT result_uint16_t adc_read(adc_t *adc) {
   return out;
 }
 
-EXPORT float adc_raw_to_voltage(adc_t adc, uint16_t value) {
+EXPORT float adc_raw_to_voltage(const adc_t *adc, uint16_t value) {
   const float volts_per_step =
-      (adc.voltage_reference - 0.f) / ((1 << adc.bits) - 1);
+      (adc->voltage_reference - 0.f) / ((1 << adc.bits) - 1);
   return volts_per_step * value;
 }
 

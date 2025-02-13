@@ -161,14 +161,14 @@ EXPORT error_t uart_receive(uart_connection_t conn, buffer_view_t buffer) {
 
 typedef int adc_handle_t;
 typedef struct {
-  adc_handle_t *handle;
+  adc_handle_t handle;
   uint8_t bits;
   float voltage_reference;
 } adc_t;
 
-static int fake_adc_handle = 1;
+static adc_handle_t fake_adc_handle = 1;
 static adc_t fake_adc = {
-    .handle = &fake_adc_handle, .bits = 12, .voltage_reference = 3.3};
+    .handle = fake_adc_handle, .bits = 12, .voltage_reference = 3.3};
 static uint16_t _adc_value = 1023;
 
 EXPORT error_t adc_init(adc_t *adc) {

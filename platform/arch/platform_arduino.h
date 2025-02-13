@@ -283,23 +283,23 @@
  static adc_handle_t fake_ADC = 1;
  
  typedef struct {
-   adc_handle_t *handle;
-   uint8_t bits; // o número de bits é fixo no arduino, 10 para a maioria, 12 em
-                 // alguns
-   float voltage_reference; // a referência de tensão no arduino depende do
-                            // modelo utilizado
+   adc_handle_t handle;
+   uint8_t bits; // O número de bits é fixo no arduino, 10 para a maioria, 12 em
+                 //alguns e na ESP32
+   float voltage_reference; // A referência de tensão no arduino depende do
+                            //modelo utilizado
  } adc_t;
  
  EXPORT result_uint16_t adc_read(adc_t *adc) {
    result_uint16_t out = {.hasError = 1, .value = 0xFF};
-   out.value = analogRead(*adc->handle);
+   out.value = analogRead(adc->handle);
    out.hasError = 0;
    return out;
  }
  
- EXPORT float adc_raw_to_voltage(adc_t adc, uint16_t value) {
+ EXPORT float adc_raw_to_voltage(const adc_t *adc, uint16_t value) {
    const float volts_per_step =
-       (adc.voltage_reference - 0.f) / ((1 << adc.bits) - 1);
+       (adc->voltage_reference - 0.f) / ((1 << adc.bits) - 1);
    return volts_per_step * value;
  }
  
@@ -350,7 +350,7 @@
  }
  
  EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
-   return(!ledcWrite(pwm.handle.target, duty)); // Largura de pulsos setada em target
+   return(!ledcWrite(pwm.handle.target, duty)); // Largura de pulsos gerados no pino (target)
  }
  
  #endif
