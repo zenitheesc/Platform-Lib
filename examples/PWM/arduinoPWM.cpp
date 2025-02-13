@@ -3,8 +3,8 @@
 /* Código de teste da funcionalidade de Pwm utilizando arduino (framework)
 * Autor: Vitor Alexandre
 * Especificações:
-* -Código utilizável tanto na platform io, incluindo os seguintes pacotes em platform.ini
-*
+* -Código utilizável tanto na Arduino IDE quanto na PlatformIO, incluindo os seguintes 
+*pacotes em platform.ini:
 *     platform_packages = 
 *      framework-arduinoespressif32 @ https://github.com/espressif/arduino-esp32.git#3.0.2
 *      framework-arduinoespressif32-libs @ https://github.com/espressif/arduino-esp32/releases/download/3.0.2/esp32-arduino-libs-3.0.2.zip
