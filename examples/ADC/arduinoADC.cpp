@@ -54,14 +54,13 @@ void loop() {
   }
 
   // Obtenção da voltagem do potenciômetro
-  /* tendo que adcValue = analogicVoltage / (3.3/4096) */
+  /* tendo que adcValue = analogicVoltage / (MCU_VOLTAGE / (2^ADC_BITS - 1)) */
   voltage = adc_raw_to_voltage(&adc, adcResult.value);
                           
-  // Obtenção dos valores no munitor serial
+  // Exposição dos valores no monitor serial
   Serial.printf("ADC = %d V, Voltage = %.2f V\n", adcResult.value, voltage);
 
   // Delay de medida
   delay(500);
-
 }
 
