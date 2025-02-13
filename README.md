@@ -278,7 +278,7 @@ ADC Channel Type
 - `adc_t`
 ```c
 typedef struct {
-  adc_handle_t *handle;
+  adc_handle_t handle;
   uint8_t bits;
   float voltage_reference;
 } adc_t;
@@ -289,19 +289,19 @@ ADC Type
 
  - `adc_init`
 ```c
-error_t adc_init(adc_t* adc);
+error_t adc_init(adc_t *adc);
 ```
 ADC initialization 
 
  - `adc_read`
 ```c
-result_uint16_t adc_read(adc_t* adc);
+result_uint16_t adc_read(adc_t *adc);
 ```
 ADC Read raw value
 
  - `adc_raw_to_voltage`
 ```c
-float adc_raw_to_voltage(adc_t adc, const uint16_t value);
+float adc_raw_to_voltage(const adc_t *adc, const uint16_t value);
 ```
 
 ADC conversion to volts.
