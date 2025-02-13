@@ -1,4 +1,3 @@
-#define PLATFORM_IO // necessário caso pois utilizamos o ambiente da platformIO
 #include <Arduino.h>
 
 /* Código de teste da funcionalidade de Pwm utilizando arduino (framework)
