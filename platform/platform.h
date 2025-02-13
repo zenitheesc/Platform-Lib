@@ -11,8 +11,11 @@
  * por isso na struct "result_XX_t" veja o uso comum na struct
  * "result_XX_t"
  */
-#ifndef PLATFORM_IO // Evita conflitos coma platformIO framework
-typedef uint_fast8_t error_t; 
+#ifndef PLATFORM_IO // Evita conflitos com a platformIO framework
+  typedef uint_fast8_t error_t; 
+#else 
+  typedef uint_fast8_t zen_error_t;
+  #define error_t zen_error_t
 #endif
 
 /**
@@ -55,20 +58,20 @@ MAKE_RESULT(int);
 /* SELECT IMPLEMENTATION */
 
 #if ESP_PLATFORM // Workaround to name conflict with ESP-IDF HAL
-#define i2c_t zen_i2c_t
-#define spi_t zen_spi_t
-#define uart_t zen_uart_t
-#define adc_t zen_adc_t
+  #define i2c_t zen_i2c_t
+  #define spi_t zen_spi_t
+  #define uart_t zen_uart_t
+  #define adc_t zen_adc_t
 #endif
 
 #if ARDUINO
-#include "arch/platform_arduino.h"
+  #include "arch/platform_arduino.h"
 #elif ESP_PLATFORM
-#include "arch/platform_esp32.h"
+  #include "arch/platform_esp32.h"
 #elif __x86_64
-#include "arch/platform_debug.h"
+  #include "arch/platform_debug.h"
 #else
-#include "arch/stm32x/platform_stm32.h"
+  #include "arch/stm32x/platform_stm32.h"
 #endif
 
 // #include "arch/platform_debug.h"
