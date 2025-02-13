@@ -11,7 +11,7 @@
  * por isso na struct "result_XX_t" veja o uso comum na struct
  * "result_XX_t"
  */
-#ifndef PLATFORM_IO // Evita conflitos com a platformIO framework
+#ifndef PLATFORMIO // Evita conflitos com a platformIO framework
   typedef uint_fast8_t error_t; 
 #else 
   typedef uint_fast8_t zen_error_t;
