@@ -1,4 +1,4 @@
-<h1 align="center" style="color:white; background-color:black">Finish Platform</h1>
+<h1 align="center" style="color:white; background-color:black">Platform Lib</h1>
 <h4 align="center">The project was created to refactor and finish the lib platform, which was begun for the old members of Zenith to enable some drivers (utilizing the lib) for embedded systems with different microcontrollers.</h4>
 
 <p align="center">
