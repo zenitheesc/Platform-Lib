@@ -323,7 +323,7 @@ typedef <PWM_Channel_Type_> pwm_channel_t;
 ```
 PWM Channel Type
 
-- `pwm_t`
+ - `pwm_t`
 ```c
 typedef struct {
   pwm_handle_t handle;

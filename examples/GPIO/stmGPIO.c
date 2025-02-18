@@ -1,7 +1,9 @@
 /* Código de teste da funcionalidade de GPIO utilizando cubeIDE
 * Autor: Vitor Alexandre
-* Funcionamento: esse código permite o desligamento de um led quando um botão, associado
-*a um dado pino de entrada, é presionado
+*
+* Funcionamento: esse código permite a troca da frequência de acendimento de um led
+*ao apertarmos um botão associado a um pino de entrada.
+*
 * OBS: este código serve apenas como um exemplo, já que para compilá-lo é necessário:
 *  1- Criar o projeto na cubeIDE e importar a biblioteca da platform;
 *  2- Configurar os pinos de entrada e saída do sistema (arquivo .ioc);
