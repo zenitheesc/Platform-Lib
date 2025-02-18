@@ -136,7 +136,21 @@ typedef struct {
  ```
  GPIO Pin Type
 
+- `gpio_state_t`
+ ```C
+typedef enum{
+  gpio_low_level = 0U,
+  gpio_high_level
+} gpio_state_t
+ ```
+ GPIO state type
+
  #### Functions
+ - `gpio_read`
+ ```c
+ gpio_state_t gpio_read(gpio_pin_t pin);
+ ```
+
  - `gpio_low` 
  
  ```c
