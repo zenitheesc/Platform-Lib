@@ -133,6 +133,7 @@
   */
  typedef int GPIO_TypeDef;
  static GPIO_TypeDef fake_GPIO = 1;
+
  
  /**
   * Agrupa a interface gpio e o pino
@@ -142,8 +143,23 @@
  typedef struct {
    GPIO_TypeDef *port;
    uint16_t pin;
- } gpio_pin_t;
- 
+  } gpio_pin_t;
+
+  /**
+   * Tipo enumeração dos possíveis estados (níveis) de tensão da gpio 
+   */
+ typedef enum{
+   gpio_low_level = 0U,
+   gpio_high_level 
+  }gpio_state_t;
+  
+ EXPORT gpio_state_t gpio_read(gpio_pin_t pin){
+   gpio_state_t state;
+   pinMode(pin.pin, INPUT);
+   state = digitalRead(pin.pin) == HIGH ? gpio_high_level : gpio_low_level;
+   return state;
+ }
+
  EXPORT void gpio_low(gpio_pin_t pin) {
    pinMode(pin.pin, OUTPUT);
    digitalWrite(pin.pin, LOW);

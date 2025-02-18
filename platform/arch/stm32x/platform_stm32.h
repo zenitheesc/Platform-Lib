@@ -95,6 +95,17 @@ typedef struct {
   uint16_t pin;
 } gpio_pin_t;
 
+typedef enum{
+  gpio_low_level = 0U,
+  gpio_high_level 
+ } gpio_state_t;
+
+EXPORT gpio_state_t gpio_read(gpio_pin_t pin){
+  gpio_state_t state;
+  state = HAL_GPIO_ReadPin(pin.port,pin.pin) == GPIO_PIN_SET ? gpio_high_level : gpio_low_level;
+  return state;
+}
+
 EXPORT void gpio_low(gpio_pin_t pin) {
   HAL_GPIO_WritePin(pin.port, pin.pin, GPIO_PIN_RESET);
 }
