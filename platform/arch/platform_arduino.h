@@ -247,39 +247,42 @@
   *
   *
   */
+  #ifdef HardwareSerial_h
  
- #ifdef SoftwareSerial_h
+  /**
+   *
+   * Define o tipo da interface uart
+   * Utilizado para compatibilidade com outras platform
+   *
+   */
+  typedef HardwareSerial uart_t;
+  
+  /**
+   * Inicializa a biblioteca serial e acessa como controlador
+   * Configura o timeout das funções da serial
+   * Em caso de timeout, efetua reset do hardware da serial
+   *
+   */
+  // serial.begin();
+  // serial.setTimeout(TIMEOUT);
  
- /**
-  *
-  * Define o tipo da interface uart
-  * Utilizado para compatibilidade com outras platform
-  *
-  */
- typedef int uart_t;
- static uart_t fake_UART = 1;
- 
- /**
-  * Inicializa a biblioteca serial e acessa como controlador
-  * Configura o timeout das funções da serial
-  * Em caso de timeout, efetua reset do hardware da serial
-  *
-  */
- // serial.begin();
- // serial.setTimeout(TIMEOUT);
- typedef struct {
-   uart_t *uart;
- } uart_connection_t;
- 
- EXPORT error_t uart_writeN(uart_connection_t conn, buffer_view_t buffer) {
-   return serial.write(buffer.data, buffer.size);
- }
- 
- EXPORT error_t uart_readN(uart_connection_t conn, buffer_view_t buffer) {
-   return serial.readBytes(buffer.data, buffer.size);
- }
- 
- #endif
+  typedef struct {
+    uart_t *uart;
+  } uart_connection_t;
+  
+  EXPORT void uart_init(uart_connection_t conn, uint32_t baud){
+    conn.uart->begin(baud);
+  }
+
+  EXPORT error_t uart_writeN(uart_connection_t conn, buffer_view_t buffer) {
+    return conn.uart->write(buffer.data, buffer.size);
+  }
+  
+  EXPORT error_t uart_readN(uart_connection_t conn, buffer_view_t buffer) {
+    return conn.uart->readBytes(buffer.data, buffer.size);
+  }
+  
+  #endif
  
  /***
   * MODULO ADC
