@@ -268,6 +268,10 @@ typedef struct {
 ```
 UART Connection Type
  #### Functions
+ - `uart_init`
+```c
+void uart_init(uart_connection_t conn, uint32_t baudRate, uint32_t timeOut);
+```
 
  - `uart_transmit`
 ```c

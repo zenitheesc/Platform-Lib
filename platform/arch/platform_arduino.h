@@ -261,8 +261,8 @@
     uart_t *uart;    // uart = &Serial0 || &Serial1 || &Serial2 ...
   } uart_connection_t;
   
-  EXPORT void uart_init(uart_connection_t conn, uint32_t baud, uint32_t timeOut){
-    conn.uart->begin(baud);
+  EXPORT void uart_init(uart_connection_t conn, uint32_t baudRate, uint32_t timeOut){
+    conn.uart->begin(baudRate);
     conn.uart->setTimeout(timeOut);
   }
 
