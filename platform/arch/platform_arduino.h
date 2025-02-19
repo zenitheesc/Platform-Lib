@@ -256,22 +256,14 @@
    *
    */
   typedef HardwareSerial uart_t;
-  
-  /**
-   * Inicializa a biblioteca serial e acessa como controlador
-   * Configura o timeout das funções da serial
-   * Em caso de timeout, efetua reset do hardware da serial
-   *
-   */
-  // serial.begin();
-  // serial.setTimeout(TIMEOUT);
  
   typedef struct {
-    uart_t *uart;
+    uart_t *uart;    // uart = &Serial0 || &Serial1 || &Serial2 ...
   } uart_connection_t;
   
-  EXPORT void uart_init(uart_connection_t conn, uint32_t baud){
+  EXPORT void uart_init(uart_connection_t conn, uint32_t baud, uint32_t timeOut){
     conn.uart->begin(baud);
+    conn.uart->setTimeout(timeOut);
   }
 
   EXPORT error_t uart_writeN(uart_connection_t conn, buffer_view_t buffer) {
