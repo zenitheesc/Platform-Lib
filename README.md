@@ -91,8 +91,8 @@ This pattern was chosen to prevent [Indent Hadouken](https://i.pinimg.com/origin
  - `buffer_view_t`
 ```c
 typedef struct {
-	uint8_t *data;
-	int size;
+  uint8_t *data;
+  int size;
 } buffer_view_t;
 ```
 
@@ -103,8 +103,8 @@ and prevent mixing up sizes and arrays.
  - `result{8,16,float}_t`
 ```c
 typedef struct {
-	error_t hasError;
-	uint8_t value;
+  error_t hasError;
+  uint8_t value;
 } result8_t;
 
 ```
@@ -130,8 +130,8 @@ should be declared on a driver-by-driver basis.
 - `gpio_pin_t`
  ```c
 typedef struct {
-	<PORT> *port;
-	uint16_t pin;
+  <PORT> *port;
+  uint16_t pin;
 } gpio_pin_t;
  ```
  GPIO Pin Type
@@ -184,12 +184,12 @@ typedef enum{
  I2C Interface Type
 
 - `i2c_dev_t`
- ```c
+```c
 typedef struct {
-	i2c_t *i2c;
-	uint8_t address;
+  i2c_t *i2c;
+  uint8_t address;
 } i2c_device_t;
- ```
+```
 
  I2C Device Type
  
@@ -213,18 +213,18 @@ typedef struct {
 
 #### Types
 - `spi_t`
- ```c
+```c
   typedef <SPI_Type> spi_t;
- ```
+```
  SPI Interface Type
 
 - `spi_dev_t`
- ```c
+```c
 typedef struct {
-	spi_t *spi;
-	gpio_pin_t pin;
+  spi_t *spi;
+  gpio_pin_t pin;
 } spi_device_t;
- ```
+```
  SPI Device Type
  
 #### Functions
@@ -263,7 +263,7 @@ Receive via SPI
 - `uart_connection_t`
 ```c
 typedef struct {
-	uart_t *uart;
+  uart_t *uart;
 } uart_connection_t;
 ```
 UART Connection Type

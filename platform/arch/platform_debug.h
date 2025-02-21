@@ -1,6 +1,6 @@
 /**
  * @file platform_debug.h
- * @author Leonardo Celente (@leocelente)
+ * @authors Leonardo Celente (@leocelente) e Vitor Alexandre (@XandGVaz)
  *
  * @version 0.1
  * @date 2022-01-18
