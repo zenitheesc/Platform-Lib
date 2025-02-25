@@ -280,7 +280,7 @@ EXPORT error_t pwm_write(pwm_t pwm, uint32_t duty){
   error_t error = 1;
   if(pwm.handle != NULL){ // Evita segmentation fault
     __HAL_TIM_SET_COMPARE(pwm.handle, pwm.channel, duty); // Ajusta a largura de pulso gerada com PWM
-    error = (duty > pwm.handle->Init.Period) ? 1 : 0; // Largura dentro da precisão do timer
+    error = (duty > __HAL_TIM_GET_AUTORELOAD(pwm.handle)) ? 1 : 0; // Largura dentro da precisão do timer
   }
   return error;
 }
