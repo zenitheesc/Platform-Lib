@@ -56,7 +56,7 @@ This means calls will be logged to `stdout` with no side-effects.
 
 ## Notes
 If you're using an arduino (or esp-idf) implementation, put the `#include "platform/platform.h" after
-includes to other arduino (or esp-idf) libraries. Check issue #43.
+includes to other arduino (or esp-idf) libraries.
 
 ## Specification
 
