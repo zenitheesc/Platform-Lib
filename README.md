@@ -58,6 +58,23 @@ This means calls will be logged to `stdout` with no side-effects.
 If you're using an arduino (or esp-idf) implementation, put the `#include "platform/platform.h" after
 includes to other arduino (or esp-idf) libraries.
 
+## To do
+Finish that tasks later
+
+* CAN protocol functions in Platform:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* Interrupts use functions:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* DMA use functions:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* Implementation of Platform-Lib for ESP32 using expressifeIDE
+
 ## Specification
 
 <p align="center">
@@ -380,21 +397,3 @@ PWM module signal
 <p align = "center">
 <a href="zenith.eesc@gmail.com">zenith.eesc@gmail.com</a>
 </p>
-
-## To do
-
-Finish that tasks later
-
-* CAN protocol functions in Platform:
-- [ ] arduinoIDE
-- [ ] STM32 (cubeIDE)
-
-* Interrupts use functions:
-- [ ] arduinoIDE
-- [ ] STM32 (cubeIDE)
-
-* DMA use functions:
-- [ ] arduinoIDE
-- [ ] STM32 (cubeIDE)
-
-* Implementation of Platform-Lib for ESP32 using expressifeIDE
