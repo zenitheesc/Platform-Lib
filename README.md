@@ -46,7 +46,7 @@ such as I2C, SPI, UART and ADCs. As it's expected to be implemented in various
 circumstances, the scope is limited to transmitting and receiving raw bytes.
 
 ## Usage
-
+E
 Just add the `platform/` folder to the project, then
  `#include "platform.h"` in the driver. It then checks for 
 preprocessor macros to detect which platform is being compiled.
@@ -380,3 +380,21 @@ PWM module signal
 <p align = "center">
 <a href="zenith.eesc@gmail.com">zenith.eesc@gmail.com</a>
 </p>
+
+## To do
+
+Finish that tasks later
+
+* CAN protocol functions in Platform:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* Interrupts use functions:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* DMA use functions:
+- [ ] arduinoIDE
+- [ ] STM32 (cubeIDE)
+
+* Implementation of Platform-Lib for ESP32 using expressifeIDE
